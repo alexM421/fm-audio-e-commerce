@@ -1,0 +1,50 @@
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    transition: background-color ease 0.3s, color ease 0.3s;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.primary{
+    background-color: var(--orange);
+    color: white;
+
+    &:hover{
+        background-color: var(--orange-light);
+    }
+}
+
+.home-speaker{
+    background-color: black;
+    color: white;
+    &:hover{
+        background-color: #4C4C4C;
+    }
+}
+
+
+.secondary{
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}
+
+.tertiary{
+    background-color: transparent;
+    color: rgba(0,0,0,0.5);
+    padding: 0px;
+
+    &:hover{
+        color: var(--orange);
+    }
+}

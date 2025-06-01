@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    gap: 125px;
+    max-width: 1300px;
+    align-items: center;
+    &>img{
+        width: 540px;
+        height: 560px;
+        border-radius: 8px;
+    }
+}
+
+.description{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &>h1{
+        margin-bottom: 32px;
+        color: black;
+    }
+    
+    &>p:last-of-type{
+        margin-bottom: 40px;
+        color: rgba(0,0,0,0.5);
+    }
+}
+
+.new{
+    color: var(--orange);
+    margin-bottom: 16px;
+}
+

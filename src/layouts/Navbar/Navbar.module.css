@@ -1,0 +1,55 @@
+.container{
+    position: fixed;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    
+    width: 100%;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color ease 0.3s;
+    
+}
+
+.navbar{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    max-width:  1300px;
+    padding-top: 32px;
+    padding-bottom: 37px;
+    flex: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    transition: border-color ease 0.3s;
+
+    &>svg{
+        transition: color ease 0.3s;
+        &:hover{
+            cursor: pointer;
+            color: var(--orange)
+        }
+    }
+}
+
+.nav-items{
+    display: flex;
+    gap: 34px;
+
+    &>p{
+        transition: color ease 0.3s;
+        &:hover{
+            cursor: pointer;
+            color: var(--orange);
+        }
+    }
+}
+
+.container.scrolled{
+    background-color: black;
+
+    & .navbar{
+        border-color: black;
+    }
+}
+

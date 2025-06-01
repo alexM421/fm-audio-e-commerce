@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+
+/*Fonts*/
+
+.header-1{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 56px;
+  text-transform: uppercase;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+.header-2{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+}
+.header-3{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1.15px;
+  line-height: 36px;
+}
+.header-4{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: normal;
+  letter-spacing: 2px;
+}
+.header-5{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 33px;
+  letter-spacing: 1.7px;
+}
+.header-6{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 24px;
+  letter-spacing: 1.3px;
+}
+
+.overline{
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 10px;
+}
+
+.subtitle{
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.body-text{
+  font-family: "Manrope";
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+/*Colors*/
+
+:root{
+  --orange : #D87D4A;
+  --orange-light: #FBAF85;
+  --grey-dark: #101010;
+  --grey: #F1F1F1;
+  --grey-light: #FAFAFA;
+  --black: black;
+  --white: white;
+}
+
+/*Default*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}

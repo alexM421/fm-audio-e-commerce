@@ -1,0 +1,197 @@
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-container{
+    position: relative;
+    
+    &::before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 0;
+    }
+}
+
+
+
+.hero-container > img{
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    position: relative;
+    display: block;
+}
+
+.hero-desc-container{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    top: 50%;
+    max-width: 400px;
+    transform: translateY(-50%);
+    left: 165px;
+    gap: 24px;
+    height: auto;
+}
+
+.hero > h2{
+    color: white;
+    opacity: 0.5;
+}
+
+.hero > h1{
+    color: white;
+}
+
+.hero > p{
+    color: white;
+    opacity: 0.5;
+}
+
+.hero > *:last-child{
+    margin-top: 16px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: 200px;
+    gap: 168px;
+}
+
+
+
+.items{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.zx9-speaker{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 140px;
+    height: 560px;
+    background-color: var(--orange);
+    border-radius: 8px;
+    padding-inline: 95px;
+    overflow: hidden;
+
+    & .item-desc{
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 3;
+    &>h1{
+        color: white;
+        margin-bottom: 24px;
+    }
+
+    &>p{
+        color: white;
+        opacity: 0.75;
+        margin-bottom: 40px;
+    }
+        
+}
+
+
+
+}
+
+.image-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom:  -100px;
+
+    &> img{
+        position: absolute;
+        height: 490px;
+        z-index: 2;
+    }
+    &> svg{
+     position: absolute;
+     transform: translateY(100px);
+     z-index: 1;
+     /* pointer-events: none; */
+    }
+}
+
+
+
+
+.zx7-speaker{
+    display: flex;
+    height: 320px;
+    position: relative;
+    &>img{
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+
+    & .item-desc{
+        color: black;
+        position: absolute;
+        left: 95px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: flex-start;
+    }
+}
+
+.yx1-earphones{
+    display: flex;
+    height: 320px;
+    gap: 30px;
+    &>img{
+        border-radius: 8px;
+        width: 50%;
+
+    }
+
+    & .item-desc{
+        flex: 1;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 95px;
+        gap: 32px;
+        background-color: var(--grey);
+        color: black;
+    }
+}
