@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     align-items: center;
+    position: relative;
     max-width:  1300px;
     padding-top: 32px;
     padding-bottom: 37px;
@@ -36,7 +37,8 @@
     display: flex;
     gap: 34px;
 
-    &>p{
+    &>a{
+        color: white;
         transition: color ease 0.3s;
         &:hover{
             cursor: pointer;

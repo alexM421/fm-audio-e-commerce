@@ -6,6 +6,7 @@ import Button from "../../components/Button/Button";
 import Branding from "../../layouts/Branding/Branding";
 import ShopItemCard from "../../components/ShopItemCard/ShopItemCard";
 import PatternCircle from "../../svg/PatternCircle";
+import { Link } from "react-router";
 
 
 export default function Home () {
@@ -20,7 +21,7 @@ export default function Home () {
                         <h2 className="overline">NEW PRODUCT</h2>
                         <h1 className="header-1">XX99 MARK II<br/> HEADPHONES</h1>
                         <p className="body-text">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-                        <Button>SEE PRODUCT</Button>
+                        <Button><Link to="/headphones/xx99-mark-two-headphones">SEE PRODUCT</Link></Button>
                     </div>
                 </div>
             </div>
@@ -59,7 +60,7 @@ export default function Home () {
                             <p className="body-text">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
                             <Button 
                             variant="home-speaker"
-                            >SEE PRODUCT</Button>
+                            ><Link to="/speakers/zx9-speaker">SEE PRODUCT</Link></Button>
                         </div>
                     </div>
                     <div className={styles["zx7-speaker"]}>
@@ -68,7 +69,9 @@ export default function Home () {
                             <h1 className="header-4">ZX7 SPEAKER</h1>
                             <Button 
                             variant="secondary"
-                            >SEE PRODUCT</Button>
+                            >
+                            <Link to="/speakers/zx7-speaker">SEE PRODUCT</Link>
+                            </Button>
                         </div>
                     </div>
                     <div className={styles["yx1-earphones"]}>
@@ -77,7 +80,9 @@ export default function Home () {
                             <h1 className="header-4">YX1 EARPHONES</h1>
                             <Button 
                             variant="secondary"
-                            >SEE PRODUCT</Button>
+                            >
+                            <Link to="/earphones/yx1-earphones">SEE PRODUCT</Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

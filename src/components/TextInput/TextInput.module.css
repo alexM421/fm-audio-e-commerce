@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.legend{
+    color: black;
+    font-size: 12px;
+    letter-spacing: -0.21px;
+    font-family: "Manrope";
+    font-weight: bold;
+}
+
+.input{
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    padding: 18px 24px;
+
+    &:hover{
+        cursor: pointer;
+    }
+    &:focus{
+        outline: none;
+    }
+}

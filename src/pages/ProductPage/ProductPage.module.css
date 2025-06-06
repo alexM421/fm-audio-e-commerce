@@ -1,0 +1,114 @@
+.container{
+    margin-top: 160px;
+    padding-bottom: 160px;
+    margin-inline: auto;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 160px;
+    
+    &>div:first-of-type{
+        display: flex;
+        flex-direction: column;
+        gap: 56px
+    }
+
+    &>div:first-of-type>a{
+        opacity: 0.5;
+        color: black;
+        align-self: flex-start;
+    }
+}
+
+.item-description{
+    display: flex;
+    justify-content: space-between;
+}
+
+.features{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: black;
+    width: 60%;
+    /*Make it so /n actually works*/
+    white-space: pre-line;
+
+    &>p{
+        opacity: 0.5;
+    }
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: black;
+
+    &>h1{
+        margin-bottom: 32px;
+    }
+}
+
+.included{
+    display: flex;
+    gap: 24px;
+    &>p:first-of-type{
+        color: var(--orange)
+    }
+    &>p:last-of-type{
+        color: rgba(0,0,0,0.5)
+    }
+}
+
+.likes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+
+.likes-items{
+    display: flex;
+    gap: 30px;
+}
+
+.likes-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+
+    &>img{
+        width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+
+    &>h1{
+        color: black;
+    }
+}
+
+.gallery{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    & img{
+        border-radius: 8px;
+    }
+
+}
+
+.gallery-left{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &>img{
+        width: 100%;
+    }
+}
+

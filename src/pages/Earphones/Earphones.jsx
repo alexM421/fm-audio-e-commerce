@@ -8,6 +8,8 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 export default function Earphones () {
 
 
+    //Should have made a single CategoryPage instead of several one and used it as a component
+
     return(
         <div className={shared.container}>
             <h1 className={`${shared.title} header-2`}>Earphones</h1>
@@ -15,10 +17,10 @@ export default function Earphones () {
                 <ItemCard
                     isNew={true}
                     itemParameters={{
-                        itemName: "earphones",
-                        itemVersion: "YX1 Wireless",
+                        itemName: "YX1 Wireless earphones",
                         itemDescription: "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
-                        itemImage: "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg"
+                        itemImage: "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+                        itemLink: "yx1-earphones"
                     }}
                 />
                 <div className={shared.links}>

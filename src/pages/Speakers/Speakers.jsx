@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import shared from "../Shared.module.css"
 
 import Branding from "../../layouts/Branding/Branding";
@@ -15,19 +15,19 @@ export default function Speakers () {
                 <ItemCard
                     isNew={true}
                     itemParameters={{
-                        itemName: "Speaker",
-                        itemVersion: "ZX9",
+                        itemName: "ZX9 Speaker",
                         itemDescription: "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
-                        itemImage: "/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg"
+                        itemImage: "/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg",
+                        itemLink: "zx9-speaker"
                     }}
                 />
                  <ItemCard
                     isNew={false}
                     itemParameters={{
-                        itemName: "Speaker",
-                        itemVersion: "ZX7",
+                        itemName: "ZX7 Speaker",
                         itemDescription: "Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
-                        itemImage: "/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg"
+                        itemImage: "/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg",
+                        itemLink: "zx7-speaker"
                     }}
                     isReverse={true}
                 />
