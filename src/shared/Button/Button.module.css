@@ -1,0 +1,36 @@
+.button{
+    background-color: #D87D4A;
+    color: white;
+    padding: 15px 30px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    transition: background-color ease 0.3s, color ease 0.3s;
+
+    &:hover{
+        cursor: pointer;
+        background-color: #FBAF85;
+    }
+}
+
+.tertiary{
+    background-color: black;
+    color: white;
+
+    &:hover{
+        background-color: #4C4C4C;
+    }
+}
+
+.secondary{
+
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}

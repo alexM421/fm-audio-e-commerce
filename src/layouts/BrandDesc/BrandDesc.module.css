@@ -1,0 +1,40 @@
+.brand-desc{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 120px;
+    max-width: 1200px;
+
+    &>img{
+        height: 588px;
+        border-radius: 8px;
+    }
+
+    &>div{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        text-align: start;
+
+        &>h1{
+            font-size: 40px;
+            color: black;
+            font-weight: bold;
+            letter-spacing: 1.43px;
+            line-height: 44px;
+            max-width: 445px;
+    
+            &>span{
+                color: #D87D4A;
+            }
+        }
+
+        &>p{
+            color: black;
+            opacity: 0.5;
+            font-size: 15px;
+            line-height: 25px;
+            font-weight: 500;
+        }
+    }
+}
