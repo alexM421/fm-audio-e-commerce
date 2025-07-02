@@ -1,7 +1,7 @@
 //CSS
 import styles from "./Navbar.module.css"
 //React Router
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 //assets
 import IconCart from "../../assets/IconCart/IconCart"
 //Types
@@ -10,6 +10,8 @@ import { useEffect, useState, type JSX } from "react"
 export default function Navbar ():JSX.Element {
 
     const [isNavbarTop, setIsNavbarTop] = useState(false)
+    const isProductPage: string|undefined = useParams().slug
+
 
     useEffect(() => {
         const getWindowScrollY = () => {
@@ -22,8 +24,8 @@ export default function Navbar ():JSX.Element {
     },[]) 
 
     return(
-        <div className={`${styles.navbar} ${isNavbarTop? styles["navbar-top"]:""}`}>
-            <img src="/assets/shared/desktop/logo.svg"/>
+        <div className={`${styles.navbar} ${(isNavbarTop && !isProductPage)? styles["navbar-top"]:""}`}>
+            <img src="/assets/shared/desktop/logo.svg" alt="Audiophile logo"/>
             <div className={styles["navbar-items"]}>
                 <Link to="/">HOME</Link>
                 <Link to="/headphones">HEADPHONES</Link>
