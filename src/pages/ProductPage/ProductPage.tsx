@@ -17,7 +17,6 @@ export default function ProductPage ():JSX.Element {
 
     const { slug } = useParams<{ slug?: string }>()
     const { data }  = useDataContext()
-    console.log(data)
 
     const productData: Product|undefined = data.find((product: Product): boolean => product.slug === slug)
     if(!productData){
@@ -50,14 +49,21 @@ export default function ProductPage ():JSX.Element {
                 <div>
                     <h2>IN THE BOX</h2>
                     <div className={styles["product-box"]}>
-                        {productData.includes.map((boxItem: {quantity: number, item: string}) => 
-                            <div className={styles["product-box-item"]}>
+                        {productData.includes.map((boxItem: {quantity: number, item: string}, index: number) => 
+                            <div className={styles["product-box-item"]} key={`product-box-item-${index+1}`}>
                                 <p>{`${boxItem.quantity}x`}</p>
                                 <p>{boxItem.item}</p>
                             </div>
                         )}
                     </div>
                 </div>
+            </div>
+            <div className={styles["product-gallery"]}>
+                <div>
+                    <img src={productData.gallery.first.desktop}/>
+                    <img src={productData.gallery.second.desktop}/>
+                </div>
+                <img src={productData.gallery.third.desktop}/>
             </div>
             <CategoryLinks/>
             <BrandDesc/>
