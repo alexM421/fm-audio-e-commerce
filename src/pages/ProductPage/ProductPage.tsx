@@ -45,7 +45,7 @@ export default function ProductPage ():JSX.Element {
             <div className={styles["product-desc"]}>
                 <div>
                     <h2>FEATURES</h2>
-                    <p>{productData.features}</p>
+                    <p style={{ whiteSpace: "pre-wrap"}}>{productData.features}</p>
                 </div>
                 <div>
                     <h2>IN THE BOX</h2>
