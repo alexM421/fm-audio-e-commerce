@@ -12,6 +12,15 @@ import type { JSX } from "react"
 import type { Product } from "../../types/types"
 import Button from "../../shared/Button/Button"
 
+type otherProductType = {
+    slug: string,
+    name: string,
+    image: {
+        mobile: string,
+        tablet: string,
+        desktop: string,
+    }
+}
 
 export default function ProductPage ():JSX.Element {
 
@@ -64,6 +73,27 @@ export default function ProductPage ():JSX.Element {
                     <img src={productData.gallery.second.desktop}/>
                 </div>
                 <img src={productData.gallery.third.desktop}/>
+            </div>
+            <div className={styles["product-others"]}>
+                <h2>YOU MAY ALSO LIKE</h2>
+                <div>
+                    {productData.others.map((other: otherProductType, index: number):JSX.Element => {
+
+                        const match: RegExpMatchArray|null = other.slug.match(/(earphones|headphones|speaker)/)
+                        if(!match){
+                            throw new Error("product-other item is undefined, couldn't find matching slug for the link.")
+                        }
+                        const slug: string = `/${match[0]==="speaker"? "speakers":match[0]}/${other.slug}`
+
+                        return(
+                            <div key={`other-${index+1}`}>
+                                <img src={other.image.desktop}/>
+                                <h3>{other.name}</h3>
+                                <Button link={slug}>SEE PRODUCT</Button>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <CategoryLinks/>
             <BrandDesc/>
