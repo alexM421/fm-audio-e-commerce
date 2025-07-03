@@ -42,6 +42,23 @@ export default function ProductPage ():JSX.Element {
                     </div>
                 </div>
             </div>
+            <div className={styles["product-desc"]}>
+                <div>
+                    <h2>FEATURES</h2>
+                    <p>{productData.features}</p>
+                </div>
+                <div>
+                    <h2>IN THE BOX</h2>
+                    <div className={styles["product-box"]}>
+                        {productData.includes.map((boxItem: {quantity: number, item: string}) => 
+                            <div className={styles["product-box-item"]}>
+                                <p>{`${boxItem.quantity}x`}</p>
+                                <p>{boxItem.item}</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
             <CategoryLinks/>
             <BrandDesc/>
         </div>
