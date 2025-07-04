@@ -8,17 +8,21 @@ import HomeLayout from './layouts/HomeLayout/HomeLayout'
 import Home from './pages/Home/Home'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductPage from './pages/ProductPage/ProductPage'
+import ScrollToTop from './ScrollToTop'
 
 function App() {
 
   return (
-    <Routes>
-      <Route path="/" element={<HomeLayout/>}>
-        <Route index element={<Home/>}/>
-        <Route path=":category" element={<CategoryPage/>}/>
-        <Route path=":category/:slug" element={<ProductPage/>}/>
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop/>
+      <Routes>
+        <Route path="/" element={<HomeLayout/>}>
+          <Route index element={<Home/>}/>
+          <Route path=":category" element={<CategoryPage/>}/>
+          <Route path=":category/:slug" element={<ProductPage/>}/>
+        </Route>
+      </Routes>
+    </>
   )
 }
 

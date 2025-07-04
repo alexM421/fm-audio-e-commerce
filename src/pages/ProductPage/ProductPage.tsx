@@ -1,3 +1,4 @@
+import React from "react"
 //CSS
 import styles from "./ProductPage.module.css"
 //React Router
@@ -10,7 +11,11 @@ import { useDataContext } from "../../contexts/DataContext"
 //types
 import type { JSX } from "react"
 import type { Product } from "../../types/types"
+//components
 import Button from "../../shared/Button/Button"
+import CartButton from "../../components/CartButton/CartButton"
+//contexts
+import { useCartContext } from "../../contexts/CartContext"
 
 type otherProductType = {
     slug: string,
@@ -32,6 +37,24 @@ export default function ProductPage ():JSX.Element {
         throw new Error("Product Data is undefined. Could not find matching slug.")
     }
 
+    const [itemCount, setItemCount] = React.useState<number>(1)
+    const { setCart } = useCartContext()
+
+    const handleAddCart = () => {
+        setCart(prevCart => {
+
+            return {
+                ...prevCart,
+                [productData.slug]: {
+                    ...prevCart[productData.slug],
+                    count: prevCart[productData.slug].count + itemCount
+                }
+            }
+        })
+        setItemCount(1)
+    }
+
+
 
     return(
         <div className={styles.product}>
@@ -44,8 +67,9 @@ export default function ProductPage ():JSX.Element {
                         <h1>{productData.name}</h1>
                         <p>{productData.description}</p>
                         <p>{`$ ${productData.price}`}</p>
-                        <div>
-                            <Button>ADD TO CART</Button>
+                        <div>   
+                            <CartButton count={itemCount} setCount={setItemCount}></CartButton>
+                            <Button onClick={handleAddCart}>ADD TO CART</Button>
                         </div>
                     </div>
                 </div>
@@ -81,13 +105,13 @@ export default function ProductPage ():JSX.Element {
 
                         const match: RegExpMatchArray|null = other.slug.match(/(earphones|headphones|speaker)/)
                         if(!match){
-                            throw new Error("product-other item is undefined, couldn't find matching slug for the link.")
+                            throw new Error("No match found for other data item, not a valid product?")
                         }
                         const slug: string = `/${match[0]==="speaker"? "speakers":match[0]}/${other.slug}`
 
                         return(
                             <div key={`other-${index+1}`}>
-                                <img src={other.image.desktop}/>
+                                <img src={other.image.desktop} alt={`${other.name} image`}/>
                                 <h3>{other.name}</h3>
                                 <Button link={slug}>SEE PRODUCT</Button>
                             </div>

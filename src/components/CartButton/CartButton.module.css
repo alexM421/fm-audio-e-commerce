@@ -1,0 +1,31 @@
+.cart-btn{
+    background-color: #F1F1F1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+
+    &>button{
+        border: none;
+        background-color: transparent;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        user-select: none;
+
+        &:hover{
+            cursor: pointer;
+            color: #D87D4A;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &>p{
+        font-size: 13px;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+}
