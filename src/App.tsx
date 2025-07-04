@@ -8,7 +8,8 @@ import HomeLayout from './layouts/HomeLayout/HomeLayout'
 import Home from './pages/Home/Home'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductPage from './pages/ProductPage/ProductPage'
-import ScrollToTop from './ScrollToTop'
+//components
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 function App() {
 
