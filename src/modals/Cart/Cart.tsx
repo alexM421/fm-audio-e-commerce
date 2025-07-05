@@ -69,7 +69,7 @@ export default function Cart ():JSX.Element {
                             <img src={image.desktop}/>
                             <div>
                                 <h1>{removeAudioKeywords(name)}</h1>
-                                <p>{`$ ${price}`}</p>
+                                <p>{`$ ${price.toLocaleString("en-US")}`}</p>
                             </div>
                         </div>                   
                         <CartButton count={cartItem.count} setCount={setItemCount} variant="small"/>     
@@ -99,7 +99,7 @@ export default function Cart ():JSX.Element {
                 <div className={styles["cart-total"]}>
                     <div>
                         <p>TOTAL</p>
-                        <h2>${getCartTotal()}</h2>
+                        <h2>${getCartTotal().toLocaleString("en-US")}</h2>
                     </div>
                     <Button>CHECKOUT</Button>
                 </div>
