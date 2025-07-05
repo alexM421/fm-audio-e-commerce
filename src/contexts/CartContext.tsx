@@ -1,6 +1,6 @@
 import React from "react";
-
-
+//types
+import type { Product } from "../types/types";
 
 type CartProviderProps = {
     children: React.ReactNode,
@@ -8,9 +8,12 @@ type CartProviderProps = {
 
 type Cart = {
     [productSlug: string] : {
-            count: number
+            count: number,
+            itemData: Product,
     }
 }
+
+
 
 type CartContextType = {
     cart: Cart,

@@ -1,15 +1,20 @@
+//react-dom
+import { createPortal } from "react-dom"
 //CSS
 import styles from "./Navbar.module.css"
 //React Router
 import { Link, useParams } from "react-router-dom"
 //assets
 import IconCart from "../../assets/IconCart/IconCart"
+//components
+import Cart from "../../modals/Cart/Cart"
 //Types
 import { useEffect, useState, type JSX } from "react"
 
 export default function Navbar ():JSX.Element {
 
     const [isNavbarTop, setIsNavbarTop] = useState(false)
+    const [displayCart, setDIsplayCart] = useState(false)
     const isProductPage: string|undefined = useParams().slug
 
 
@@ -23,6 +28,10 @@ export default function Navbar ():JSX.Element {
         return () => window.removeEventListener("scroll", getWindowScrollY)
     },[]) 
 
+    const toggleCartDisplay = ():void => {
+        setDIsplayCart((prevState:boolean) => !prevState)
+    }
+
     return(
         <div className={`${styles.navbar} ${(isNavbarTop && !isProductPage)? styles["navbar-top"]:""}`}>
             <img src="/assets/shared/desktop/logo.svg" alt="Audiophile logo"/>
@@ -32,8 +41,11 @@ export default function Navbar ():JSX.Element {
                 <Link to="/speakers">SPEAKERS</Link>
                 <Link to="/earphones">EARPHONES</Link>
             </div>
-            <IconCart/>
+            <div onClick={toggleCartDisplay}>
+                <IconCart/>
+            </div>
             <hr/>
+            {displayCart && <Cart/>}
         </div>
     )
 }

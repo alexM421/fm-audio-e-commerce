@@ -1,0 +1,123 @@
+.cart{
+    position: absolute;
+    top: calc(100% + 32px);
+    right: 165px;
+    z-index: 100;
+
+    padding: 32px;
+    width: 380px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &>.cart-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &>h1{
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1.29px;
+            color: black;
+        }
+
+        &>button{
+            border: none;
+            background-color: transparent;
+            color: rgba(0,0,0,0.5);
+            text-decoration: underline;
+
+            
+            &:hover{
+                cursor: pointer;
+                color: #D87D4A;
+            }
+
+            &:active{
+                color: #D87D4A;
+                font-weight: bold;
+                outline: none;
+            }
+        }
+    }
+
+    &>.cart-total{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &>div{
+            display: flex;
+            justify-content: space-between;
+
+            &>p{
+                color: rgba(0,0,0,0.5);
+                font-size: 15px;
+                line-height: 25px;
+                letter-spacing: 0px;
+                font-weight: 500;
+            }
+
+            &>h2{
+                font-size: 18px;
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+}
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+    &>div{
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        
+        &>img{
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+        }
+
+        &>div{
+
+            display: flex;
+            flex-direction: column;
+
+            &>h1{
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 25px;
+                letter-spacing: 0px;
+                color: black;
+            }
+    
+            &>p{
+                font-size: 14px;
+                line-height: 25px;
+                letter-spacing: 0px;
+                font-weight: bold;
+                color: rgba(0,0,0,0.5);
+            }
+        }
+    }
+}
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    top: calc(100%);
+    left: 0px;
+    position: absolute;
+    z-index: 99;
+    content: "";
+    background-color: rgba(0,0,0,0.5);
+}

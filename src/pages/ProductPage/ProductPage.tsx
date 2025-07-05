@@ -39,19 +39,27 @@ export default function ProductPage ():JSX.Element {
 
     const [itemCount, setItemCount] = React.useState<number>(1)
     const { setCart } = useCartContext()
-
     const handleAddCart = () => {
+        setItemCount(1)
         setCart(prevCart => {
-
-            return {
-                ...prevCart,
-                [productData.slug]: {
-                    ...prevCart[productData.slug],
-                    count: prevCart[productData.slug].count + itemCount
+            if(!prevCart[productData.slug]){
+                return {
+                      ...prevCart,
+                    [productData.slug]: {
+                        count: 1,
+                        itemData: productData,
+                    }
+                }
+            }else{
+                return {
+                    ...prevCart,
+                    [productData.slug]: {
+                        ...prevCart[productData.slug],
+                        count: prevCart[productData.slug].count + itemCount
+                    }
                 }
             }
         })
-        setItemCount(1)
     }
 
 

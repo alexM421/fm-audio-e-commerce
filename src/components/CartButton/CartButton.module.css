@@ -5,6 +5,11 @@
     gap: 20px;
     padding: 15px 20px;
 
+    &.cart-btn-sm{
+        gap: 12px;
+        padding: 7px 12px;
+    }
+
     &>button{
         border: none;
         background-color: transparent;
@@ -27,5 +32,11 @@
         font-size: 13px;
         letter-spacing: 1px;
         font-weight: bold;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
+
