@@ -3,9 +3,15 @@ import styles from "./CartButton.module.css"
 //types
 import type { JSX } from "react"
 
+type SetCountCompatible = (
+    | ((value: number | ((prev: number) => number)) => void)
+    | ((callback: (prevCount: number) => number) => void)
+
+)
+
 type CartButtonProps = {
     count: number,
-    setCount: React.Dispatch<React.SetStateAction<number>>,
+    setCount: SetCountCompatible,
     variant: string,
 }
 
@@ -13,7 +19,7 @@ export default function CartButton ({ count, setCount, variant="large" }: CartBu
 
     const incrementCount = (): void => {
         if(count<9){
-            setCount((prevCount): number => prevCount+1)
+            setCount((prevCount:number): number => prevCount+1)
         }
     }
 

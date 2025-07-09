@@ -3,20 +3,56 @@ import styles from "./Cart.module.css"
 //contexts
 import { useCartContext } from "../../contexts/CartContext"
 //types
-import type { JSX } from "react"
+import {  useEffect, useRef, type JSX } from "react"
 import type { Product } from "../../types/types"
 import Button from "../../shared/Button/Button"
 import CartButton from "../../components/CartButton/CartButton"
 
 type CartItem = {
-        count: number,
-        itemData: Product,
-    }
+    count: number,
+    itemData: Product,
 
+}
 
-export default function Cart ():JSX.Element {
+type CartProps = {
+    setCartDisplay: React.Dispatch<React.SetStateAction<boolean>>,
+    //same as 
+    // setCartDisplay: (value: boolean | ((prev: boolean) => boolean)) => void
+    cartBtnRef: React.RefObject<HTMLDivElement| null>,
+}
+
+export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.Element {
 
     const { cart, setCart } = useCartContext()
+
+    const cartRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(() => {
+
+        const handleClickOutside = (e: MouseEvent):void => {
+
+            if(!cartRef.current || !cartBtnRef.current){
+                return 
+            }
+            if(!cartRef.current.contains(e.target as Node) && !cartBtnRef.current.contains(e.target as Node)){
+                setCartDisplay(false)
+            }
+        }
+
+        document.body.addEventListener("mousedown",handleClickOutside)
+    
+        return ():void => document.body.removeEventListener("mousedown",handleClickOutside)
+
+    },[])
+
+
+
+
+
+
+
+
+
 
     const getUniqueItemNumber = ():number => {
         
@@ -50,7 +86,7 @@ export default function Cart ():JSX.Element {
             return input.replace(regex, '').replace(/\s{2,}/g, ' ').trim();
             }
 
-            const setItemCount = (callback: (prevCount: number) => number):void => {
+            const setItemCount = (callback: ((prevCount: number) => number)):void => {
                 setCart(prevCart => {
                     return {
                         ...prevCart,
@@ -90,7 +126,7 @@ export default function Cart ():JSX.Element {
     return(
         <>
             <div className={styles.background}></div>
-            <div className={styles.cart}>
+            <div className={styles.cart} ref={cartRef}>
                 <div className={styles["cart-header"]}>
                     <h1>{`Cart (${getUniqueItemNumber()})`}</h1>
                     <button onClick={handleRemoveAll}>Remove all</button>

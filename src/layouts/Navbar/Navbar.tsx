@@ -9,14 +9,15 @@ import IconCart from "../../assets/IconCart/IconCart"
 //components
 import Cart from "../../modals/Cart/Cart"
 //Types
-import { useEffect, useState, type JSX } from "react"
+import { useEffect, useRef, useState, type JSX } from "react"
 
 export default function Navbar ():JSX.Element {
 
     const [isNavbarTop, setIsNavbarTop] = useState(false)
-    const [displayCart, setDIsplayCart] = useState(false)
+    const [displayCart, setDisplayCart] = useState(false)
     const isProductPage: string|undefined = useParams().slug
 
+    const cartBtnRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const getWindowScrollY = () => {
@@ -29,7 +30,7 @@ export default function Navbar ():JSX.Element {
     },[]) 
 
     const toggleCartDisplay = ():void => {
-        setDIsplayCart((prevState:boolean) => !prevState)
+        setDisplayCart((prevState:boolean) => !prevState)
     }
 
     return(
@@ -41,11 +42,11 @@ export default function Navbar ():JSX.Element {
                 <Link to="/speakers">SPEAKERS</Link>
                 <Link to="/earphones">EARPHONES</Link>
             </div>
-            <div onClick={toggleCartDisplay}>
+            <div onClick={toggleCartDisplay} ref={cartBtnRef}>
                 <IconCart/>
             </div>
             <hr/>
-            {displayCart && <Cart/>}
+            {displayCart && <Cart setCartDisplay={setDisplayCart} cartBtnRef={cartBtnRef}/>}
         </div>
     )
 }
