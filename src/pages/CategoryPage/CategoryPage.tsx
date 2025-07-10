@@ -27,7 +27,6 @@ export default function CategoryPage ():JSX.Element {
             key={`product-link-${categoryItem.id}`}
             />)
 
-
     return(
         <div className={styles["category-page"]}>
             <p>{category?.toUpperCase()}</p>

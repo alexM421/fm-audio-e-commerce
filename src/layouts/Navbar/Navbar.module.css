@@ -1,7 +1,6 @@
 
 
 .navbar{
-
     position: fixed;
     z-index: 1000;
     top: 0px;
@@ -39,7 +38,7 @@
         }
     }
     
-    &>svg{
+    &>div>svg{
         color: white;
         &:hover{
             cursor: pointer;
@@ -69,3 +68,16 @@
     }
 }
 
+.cart-btn-animation{
+    animation: cart-animation 0.3s ease;
+    &>svg{
+        color: #D87D4A;
+    }
+}
+
+@keyframes cart-animation {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(-45deg);}
+    75% { transform: rotate(45deg);}
+    100% { transform: rotate(0deg);}
+}
