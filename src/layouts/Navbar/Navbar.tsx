@@ -29,6 +29,7 @@ export default function Navbar ():JSX.Element {
         return () => window.removeEventListener("scroll", getWindowScrollY)
     },[]) 
 
+
     const toggleCartDisplay = ():void => {
         setDisplayCart((prevState:boolean) => !prevState)
     }

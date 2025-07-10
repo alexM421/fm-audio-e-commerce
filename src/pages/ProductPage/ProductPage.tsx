@@ -63,6 +63,9 @@ export default function ProductPage ():JSX.Element {
     }
 
 
+       
+ 
+
 
     return(
         <div className={styles.product}>
@@ -76,7 +79,7 @@ export default function ProductPage ():JSX.Element {
                         <p>{productData.description}</p>
                         <p>{`$ ${productData.price}`}</p>
                         <div>   
-                            <CartButton count={itemCount} setCount={setItemCount}></CartButton>
+                            <CartButton count={itemCount} setCount={setItemCount} variant="large"></CartButton>
                             <Button onClick={handleAddCart}>ADD TO CART</Button>
                         </div>
                     </div>
