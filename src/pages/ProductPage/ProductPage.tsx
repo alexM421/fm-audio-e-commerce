@@ -46,7 +46,7 @@ export default function ProductPage ():JSX.Element {
                 return {
                       ...prevCart,
                     [productData.slug]: {
-                        count: 1,
+                        count: itemCount,
                         itemData: productData,
                     }
                 }

@@ -8,6 +8,7 @@ import HomeLayout from './layouts/HomeLayout/HomeLayout'
 import Home from './pages/Home/Home'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductPage from './pages/ProductPage/ProductPage'
+import Checkout from './pages/Checkout/Checkout'
 //components
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
@@ -21,6 +22,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path=":category" element={<CategoryPage/>}/>
           <Route path=":category/:slug" element={<ProductPage/>}/>
+          <Route path="checkout" element={<Checkout/>}/>
         </Route>
       </Routes>
     </>

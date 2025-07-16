@@ -1,0 +1,33 @@
+.text-input{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &>h3{
+        font-size: 12px;
+        letter-spacing: -0.21px;
+        color: black;
+        font-weight: bold;
+    }
+
+    &>input{
+        padding: 18px 24px;
+        border-radius: 8px;
+        border: 1px solid #CFCFCF;
+        font-size: 14px;
+        letter-spacing: -0.25px;
+        color: black;
+        font-weight: bold;
+        transition: border-color 0.3s ease;
+
+        &::placeholder{
+            opacity: 0.4;
+            color: black;
+        }
+
+        &:focus{
+           outline: none; 
+           border-color: #D87D4A;
+        }
+    }
+}

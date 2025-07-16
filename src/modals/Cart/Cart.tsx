@@ -45,15 +45,6 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
 
     },[])
 
-
-
-
-
-
-
-
-
-
     const getUniqueItemNumber = ():number => {
         
         let count: number = 0
@@ -100,7 +91,7 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
 
             if(cartItem.count>0){
                 return(
-                    <div className={styles["cart-item"]}>
+                    <div className={styles["cart-item"]} key={`cart-item-${name}`}>
                         <div>
                             <img src={image.desktop}/>
                             <div>
@@ -137,7 +128,7 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
                         <p>TOTAL</p>
                         <h2>${getCartTotal().toLocaleString("en-US")}</h2>
                     </div>
-                    <Button>CHECKOUT</Button>
+                    <Button link="/checkout">CHECKOUT</Button>
                 </div>
             </div>
         </>
