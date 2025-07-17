@@ -4,22 +4,25 @@ import styles from "./Checkout.module.css"
 import { Link } from "react-router-dom"
 //React
 import { useState, type JSX } from "react"
+import { createPortal } from "react-dom"
 //Shared
 import TextInput from "../../shared/TextInput/TextInput"
 import Button from "../../shared/Button/Button"
 //contexts
 import { useCartContext } from "../../contexts/CartContext"
+//modals
+import CheckoutModal from "../../modals/CheckoutModal/CheckoutModal"
 
 
 export default function Checkout ():JSX.Element {
 
     const [paymentMethod, setPaymentMethod ] = useState<string>("e-money")
+    const [isOrderConfirmed, setIsOrderConfirmed] = useState<boolean>(false)
 
     const { cart } = useCartContext()
+    
 
-    console.log(cart)
-
-        const handleSummaryItemsDisplay = ():JSX.Element => {
+    const handleSummaryItemsDisplay = ():JSX.Element => {
 
         const cartArr: (JSX.Element|null)[] = Object.values(cart).map((cartItem): JSX.Element|null => {
         
@@ -62,8 +65,13 @@ export default function Checkout ():JSX.Element {
 
     const total: number = Object.values(cart).reduce((acc, cartItem) => acc + (cartItem.count * cartItem.itemData.price),0)
     const shipping: number = total? 50:0
-    const vat: number = total*0.2
+    const vat: number = Math.floor(total*0.2)
     const grandTotal: number = total+ vat + shipping
+
+    const handleOrderConfirmation = () => {
+        
+        return ""
+    }
 
     return(
         <div className={styles.checkout}>
@@ -168,10 +176,10 @@ export default function Checkout ():JSX.Element {
                             <p>{`$${grandTotal.toLocaleString("en-US")}`}</p>
                         </div>
                     </div>
-                    <Button>CONTINUE & PAY</Button>
+                    <Button onClick={handleOrderConfirmation}>CONTINUE & PAY</Button>
                 </div>
-
             </div>
+            {isOrderConfirmed && createPortal(<CheckoutModal grandTotal={grandTotal}/>, document.body)}
         </div>
     )
 }

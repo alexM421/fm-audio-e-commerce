@@ -18,7 +18,7 @@ export default function Button ({ children ,link, variant="primary", onClick }: 
 
     if(link){
         const linkElement: JSX.Element = 
-            <Link to={link} className={`${styles.button} ${styles[variant]}`}>
+            <Link to={link} className={`${styles.button} ${styles[variant]}`} onClick={onClick}>
                 { children }
             </Link>
 
