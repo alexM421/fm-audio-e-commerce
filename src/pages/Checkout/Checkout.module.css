@@ -71,6 +71,11 @@
     margin-bottom: 60px;
 }
 
+/*Hides the selector of num inputs*/
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
 .payment-section{
     margin-bottom: 0px;
 }
