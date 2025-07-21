@@ -1,0 +1,261 @@
+.checkout{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 240px 165px 145px 165px;
+    background-color: #F1F1F1;
+
+    &>a{
+        opacity: 0.5;
+        color: black;
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: 0px;
+        font-weight: 500;
+        transition: color ease 0.3s, opacity ease 0.3s;
+
+        &:hover{
+            cursor: pointer;
+            color: #D87D4A;
+            opacity: 1;
+        }
+    }
+
+    &>.checkout-main{
+        display: flex;
+        align-items: flex-start;
+        gap: 22px;
+    }
+}
+
+.checkout-details{
+    flex: 1;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 54px 48px 48px 48px;
+    border-radius: 8px;
+
+    &>h1{
+        color: black;
+        font-size: 32px;
+        line-height: 36px;
+        font-weight: bold;
+        letter-spacing: 1.14px;
+        margin-bottom: 40px;
+    }
+    
+    &>.checkout-section{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &>h2{
+            font-size: 13px;
+            line-height: 25px;
+            color: #D87D4A;
+            font-weight: bold;
+            letter-spacing: 0.93px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.billing-section, .shipping-section, .payment-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+    column-gap: 16px;
+    margin-bottom: 60px;
+}
+
+/*Hides the selector of num inputs*/
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.payment-section{
+    margin-bottom: 0px;
+}
+
+.shipping-section > div:first-of-type{
+    grid-column: span 2;
+}
+
+.payment-section > div:first-of-type{
+    grid-column: 2;
+}
+
+.payment-method{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+    &>label{
+        border: 1px solid #CFCFCF;
+        border-radius: 8px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 18px 16px;
+        transition: border-color ease 0.3s;
+
+        &:hover{
+            cursor: pointer;
+            border-color: #D87D4A;
+        }
+    
+        &:has(input:checked){
+            border-color: #D87D4A;
+        }
+    
+        &>input{
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+    
+        &>.input-replacer{
+            outline: 1px solid #CFCFCF;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: transparent;
+            outline-offset: 3px;
+        }
+
+        &>input:checked+.input-replacer{
+            background-color: #D87D4A;
+        }
+
+        &>p{
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: -0.25px;
+        }   
+    }
+}
+
+.cash-on-delivery{
+    grid-column: span 2;
+    display: flex;
+    gap:  16px;
+
+    &>p{
+        color: rgba(0,0,0,0.5);
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: 0px;
+        font-weight: 500;
+    }
+}
+
+.checkout-summary{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px;
+    background-color: white;
+    border-radius: 8px;
+
+    &>h1{
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.29px;
+    }
+
+    &>.summary-total{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        &>div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &>p:first-of-type{
+                color: rgba(0,0,0,0.5);
+                font-size: 15px;
+                line-height: 25px;
+                font-weight: 500;
+                letter-spacing: 0px;
+            }
+
+            &>p:last-of-type{
+                color: black;
+                font-weight: bold;
+                font-size: 18px;
+                letter-spacing: 0px;
+            }
+        }
+
+        &>div:last-of-type{
+            margin-top: 16px;
+
+            &>p:last-of-type{
+                color: #D87D4A;
+            }
+        }
+    }
+}
+
+.summary-items{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &>.summary-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        
+        &>p{
+            color: rgba(0,0,0,0.5);
+            font-size: 15px;
+            line-height: 25px;
+            letter-spacing: 0px;
+            font-weight: bold;
+        }
+
+        &>div{
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            
+            &>img{
+                width: 64px;
+                height: 64px;
+                border-radius: 8px;
+            }
+    
+            &>div{
+    
+                display: flex;
+                flex-direction: column;
+    
+                &>h1{
+                    font-size: 15px;
+                    font-weight: bold;
+                    line-height: 25px;
+                    letter-spacing: 0px;
+                    color: black;
+                }
+        
+                &>p{
+                    font-size: 14px;
+                    line-height: 25px;
+                    letter-spacing: 0px;
+                    font-weight: bold;
+                    color: rgba(0,0,0,0.5);
+                }
+            }
+        }
+    }
+}

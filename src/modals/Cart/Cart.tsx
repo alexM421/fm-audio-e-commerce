@@ -5,8 +5,13 @@ import { useCartContext } from "../../contexts/CartContext"
 //types
 import {  useEffect, useRef, type JSX } from "react"
 import type { Product } from "../../types/types"
+//shared
 import Button from "../../shared/Button/Button"
+//components
 import CartButton from "../../components/CartButton/CartButton"
+//react router
+import { useNavigate } from "react-router-dom"
+
 
 type CartItem = {
     count: number,
@@ -24,6 +29,8 @@ type CartProps = {
 export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.Element {
 
     const { cart, setCart } = useCartContext()
+
+    const navigate = useNavigate()
 
     const cartRef = useRef<HTMLDivElement | null>(null)
 
@@ -44,15 +51,6 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
         return ():void => document.body.removeEventListener("mousedown",handleClickOutside)
 
     },[])
-
-
-
-
-
-
-
-
-
 
     const getUniqueItemNumber = ():number => {
         
@@ -100,7 +98,7 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
 
             if(cartItem.count>0){
                 return(
-                    <div className={styles["cart-item"]}>
+                    <div className={styles["cart-item"]} key={`cart-item-${name}`}>
                         <div>
                             <img src={image.desktop}/>
                             <div>
@@ -123,6 +121,18 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
         )
     }
 
+
+    const isCartEmpty = Object.values(cart).every(cartItem => !cartItem.count)
+
+    const handleCheckout = () => {
+        //if at least one cartItem is not null
+        if(!isCartEmpty){
+            navigate("/checkout")
+        }
+    }
+
+
+
     return(
         <>
             <div className={styles.background}></div>
@@ -137,7 +147,7 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
                         <p>TOTAL</p>
                         <h2>${getCartTotal().toLocaleString("en-US")}</h2>
                     </div>
-                    <Button>CHECKOUT</Button>
+                    <Button onClick={handleCheckout} disabled={isCartEmpty} >CHECKOUT</Button>
                 </div>
             </div>
         </>
