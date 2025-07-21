@@ -25,7 +25,7 @@ export default function Checkout ():JSX.Element {
 
             <Link to="/">Go Back</Link>
             <div className={styles["checkout-main"]}>
-                <CheckoutForm formRef={formRef}/>
+                <CheckoutForm formRef={formRef} setIsOrderConfirmed={setIsOrderConfirmed}/>
                 <CheckoutSummary isOrderConfirmed={isOrderConfirmed} formRef={formRef}/>
             </div>
         </div>

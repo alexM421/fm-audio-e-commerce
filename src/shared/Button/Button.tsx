@@ -11,10 +11,11 @@ type ButtonProps = {
     children: React.ReactNode,
     link? : string,
     variant?: string,
+    disabled?: boolean,
     onClick?: () => void,
 }
 
-export default function Button ({ children ,link, variant="primary", onClick }: ButtonProps):JSX.Element {
+export default function Button ({ children ,link, variant="primary", disabled, onClick }: ButtonProps):JSX.Element {
 
     if(link){
         const linkElement: JSX.Element = 
@@ -26,7 +27,7 @@ export default function Button ({ children ,link, variant="primary", onClick }: 
     }
     else{
         const buttonElement: JSX.Element = 
-            <button className={`${styles.button} ${styles[variant]}`} onClick={onClick}>
+            <button disabled={disabled} className={`${styles.button} ${styles[variant]}`} onClick={onClick}>
                 { children }
             </button>
 

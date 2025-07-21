@@ -9,22 +9,24 @@ type TextInputProps = {
         name?: string,
         id?: string,
         type?: string,
-        required?: boolean,
-        title?: string,
         pattern?: string,
         placeholder?: string,
     },
+    error: boolean,
     value: string,
-        setValue: (e: React.ChangeEvent<HTMLInputElement>) => void
+    setValue: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function TextInput ({ legend, inputAttr, value, setValue }: TextInputProps):JSX.Element {
+export default function TextInput ({ legend, inputAttr={pattern: ""}, error, value, setValue }: TextInputProps):JSX.Element {
 
 
 
     return(
-        <div className={styles["text-input"]}>
-            <h3>{legend}</h3>
+        <div className={`${styles["text-input"]} ${error? styles.err:""}`}>
+            <div>
+                <h3>{legend}</h3>
+                {error && <p>Wrong format</p>}
+            </div>
             <input
             {...inputAttr}
             value={value}

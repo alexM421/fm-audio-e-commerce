@@ -3,11 +3,20 @@
     flex-direction: column;
     gap: 8px;
 
-    &>h3{
-        font-size: 12px;
-        letter-spacing: -0.21px;
+    
+
+    &>div{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         color: black;
-        font-weight: bold;
+
+        &>h3{
+            font-size: 12px;
+            letter-spacing: -0.21px;
+            font-weight: bold;
+        }
     }
 
     &>input{
@@ -29,5 +38,23 @@
            outline: none; 
            border-color: #D87D4A;
         }
+    }
+}
+
+
+.err{
+
+    &>div{
+        color: #CD2C2C;
+
+        &>p{
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: -0.21px;
+        }
+    }
+
+    &>input{
+        border-color: #CD2C2C;
     }
 }

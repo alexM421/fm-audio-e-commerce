@@ -1,22 +1,27 @@
 //CSS
 import styles from "../Checkout.module.css"
 //React
-import { useRef, useState } from "react"
+import { useState } from "react"
 //Shared
 import TextInput from "../../../shared/TextInput/TextInput"
 
 type CheckoutFormProps = {
     formRef: React.RefObject<HTMLFormElement | null>,
+    setIsOrderConfirmed: ( value: boolean | ((prevState: boolean) => boolean)) => void
 }
 
-export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
+type errorsObj = {
+    [key: string]: boolean,
+}
+
+export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: CheckoutFormProps) {
 
     const [paymentMethod, setPaymentMethod ] = useState<string>("e-money")
     const [formValues, setFormValues] = useState<{[key: string]: string}>(
         {
             name: "",
             email: "",
-            tel: "",
+            phone: "",
             address: "",
             zip: "",
             city: "",
@@ -26,11 +31,11 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
         }
     )
 
-    const [errors, setErrors] = useState<{[key: string]: boolean}>(
+    const [errors, setErrors] = useState<errorsObj>(
         {
             name: false,
             email: false,
-            tel: false,
+            phone: false,
             address: false,
             zip: false,
             city: false,
@@ -45,10 +50,35 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
     }
 
 
+    
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const formElements = e.currentTarget.elements
+        const tempErrors: errorsObj = {
+            name: false,
+            email: false,
+            phone: false,
+            address: false,
+            zip: false,
+            city: false,
+            country: false,
+            ["e-money-num"]: false,
+            pin: false,
+        }
 
+
+        for(let error in tempErrors){
+            const element = formElements.namedItem(error) as HTMLInputElement| null
+            if(element){
+                tempErrors[error] = !element.validity.valid
+            }
+        }
+
+        if(Object.values(tempErrors).every(error => !error)){
+            setIsOrderConfirmed(true)
+        }
+        setErrors(tempErrors)
     }
 
     return(
@@ -64,6 +94,7 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             placeholder: "Alexei Ward",
                             type:"text",
                         }}
+                        error={errors.name}
                         value={formValues.name}
                         setValue={setValue}
                     />
@@ -74,6 +105,7 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             name:"email",
                             type:"email",
                         }}
+                        error={errors.email}
                         value={formValues.email}
                         setValue={setValue}
                     />
@@ -83,9 +115,10 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             placeholder:"+1 202-555-0136",
                             name:"phone",
                             type:"tel",
-                            pattern: "/\+?(1 \d{3}-\d{3}-\d{4})/"
+                            pattern: "\\+?(1\\s\\d{3}-\\d{3}-\\d{4})"
                         }}
-                        value={formValues.tel}
+                        error={errors.phone}
+                        value={formValues.phone}
                         setValue={setValue}
                     />
                 </div>
@@ -99,8 +132,9 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             placeholder:"1137 Williams Avenue",
                             name:"address",
                             type:"text",
-                            pattern: ""
+                    
                         }}
+                        error={errors.address}
                         value={formValues.address}
                         setValue={setValue}
                     />
@@ -109,10 +143,11 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                         inputAttr = {{
                             placeholder:"10001",
                             name:"zip",
-                            type:"number",
-                            pattern: "/\d{5}/"
+                            type:"text",
+                            pattern: "^\\d{5}$"
                         }}
-                        value={formValues.tel}
+                        error={errors.zip}
+                        value={formValues.zip}
                         setValue={setValue}
                     />
                     <TextInput
@@ -122,6 +157,7 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             name: "city",
                             type: "text",
                         }}
+                        error={errors.city}
                         value={formValues.city}
                         setValue={setValue}
                     />
@@ -132,6 +168,7 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                             name: "country",
                             type: "text",
                         }}
+                        error={errors.country}
                         value={formValues.country}
                         setValue={setValue}
                     />
@@ -160,9 +197,10 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                                 inputAttr={{
                                     placeholder:"238521993",
                                     name: "e-money-num",
-                                    type: "number",
-                                    pattern: "/\d{9}/"
+                                    type: "text",
+                                    pattern: "\\d{9}"
                                 }}
+                                error={errors["e-money-num"]}
                                 value={formValues["e-money-num"]}
                                 setValue={setValue}
                             />
@@ -171,9 +209,10 @@ export default function CheckoutForm ({ formRef }: CheckoutFormProps) {
                                 inputAttr={{
                                     placeholder:"6891",
                                     name: "pin",
-                                    type: "number",
-                                    pattern: "/\d{4}/"
+                                    type: "text",
+                                    pattern: "\\d{4}"
                                 }}
+                                error={errors.pin}
                                 value={formValues.pin}
                                 setValue={setValue}
                             />

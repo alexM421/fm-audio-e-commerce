@@ -25,7 +25,7 @@ export default function Home ():JSX.Element {
                         <h1>XX99 MARK II<br/>HEADPHONES</h1>
                         <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
                     </div>
-                    <Button link="">SEE PRODUCT</Button>
+                    <Button link="/headphones/xx99-mark-two-headphones">SEE PRODUCT</Button>
                 </div>
             </div>
             <div className={styles["home-main"]}>
@@ -40,7 +40,7 @@ export default function Home ():JSX.Element {
                         <div>
                             <h1>ZX9<br/>SPEAKER</h1>
                             <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                            <Button variant="tertiary">SEE PRODUCT</Button>
+                            <Button link="/speakers/zx9-speaker" variant="tertiary">SEE PRODUCT</Button>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@ export default function Home ():JSX.Element {
                         <img src="/assets/home/desktop/image-speaker-zx7.jpg"/>
                         <div>
                             <h1>ZX7 SPEAKER</h1>
-                            <Button variant="secondary">SEE PRODUCT</Button>
+                            <Button link="/speakers/zx7-speaker" variant="secondary">SEE PRODUCT</Button>
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@ export default function Home ():JSX.Element {
                         <img src="/assets/home/desktop/image-earphones-yx1.jpg"/>
                         <div>
                             <h1>YX1 EARPHONES</h1>
-                            <Button variant="secondary">SEE PRODUCT</Button>
+                            <Button link="/earphones/yx1-earphones" variant="secondary">SEE PRODUCT</Button>
                         </div>
                     </div>
 
