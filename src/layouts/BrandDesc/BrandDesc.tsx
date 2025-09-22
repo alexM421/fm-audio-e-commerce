@@ -14,6 +14,10 @@ export default function BrandDesc ():JSX.Element {
             </div>
             <picture>
                 <source 
+                    srcSet="/assets/shared/mobile/image-best-gear.jpg" 
+                    media="(max-width: 700px)"
+                />
+                <source 
                     srcSet="/assets/shared/tablet/image-best-gear.jpg" 
                     media="(max-width: 1200px)"
                 />

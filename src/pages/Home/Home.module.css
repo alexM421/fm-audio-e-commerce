@@ -59,6 +59,20 @@
             line-height: 25px;
             opacity: 0.75;
         }
+
+        @media (max-width: 700px) {
+
+            gap: 16px;
+
+            &>h1{
+                font-size: 36px ;
+                line-height: 40px;
+            }
+
+            &>p{
+                margin-top: 8px;;
+            }
+        }
     }
 
     @media (max-width: 1200px) {
@@ -81,7 +95,11 @@
 
     @media (max-width: 1250px) {
         padding-inline: 80px;
+    }
 
+    @media (max-width: 900px) {
+        padding-top: 40px;
+        padding-inline: 24px;
     }
 }
 
@@ -95,6 +113,10 @@
     @media (max-width: 1200px) {
         margin-block: 96px;
         gap: 32px;
+    }
+
+    @media (max-width: 700px) {
+        gap: 24px;
     }
 }
 
@@ -111,7 +133,6 @@
 
     &>div:first-of-type{
         position: relative;
-       
 
         &>img:first-of-type{
             
@@ -127,6 +148,7 @@
             left: 50%;
             bottom: 50%;
             transform: translateX(-50%) translateY(50%);
+            
         }
     }
 
@@ -176,6 +198,20 @@
             align-items: center;
         }
     }
+
+    @media (max-width: 700px) {
+        padding: 55px 24px;
+
+        &>div:last-of-type{
+            &>h1{
+                font-size: 36px;
+                line-height: 40px;
+            }
+            &>p{
+                margin-bottom: 24px;
+            }
+        }
+    }
 }
 
 .home-zx7{
@@ -204,17 +240,35 @@
             font-weight: bold;
         }
     }
+
+    @media (max-width: 700px) {
+        &>div{
+            left: 24px;
+
+            &>a{
+                width: 160px;
+                height: 48px;
+                align-items: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0px;          
+            }
+        }
+    }
 }
 
 .home-yx1{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    min-width: 0;
-
     height: 320px;
+    flex-shrink: 0;
 
     &>picture{
+        height: 100%;
+        width: 100%;
+
         &>img{
             border-radius: 8px;
             height: 100%;
@@ -245,6 +299,23 @@
 
         &>div{
            padding-left: 40px; 
+        }
+    }
+
+    @media (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        height: auto;
+
+        &>picture{
+            height: 200px;
+        }
+
+        &>div{
+            padding: none;
+            height: 200px;
+            width: 100%;
         }
     }
 }

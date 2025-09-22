@@ -14,6 +14,10 @@ export default function Home ():JSX.Element {
         <div className={styles.home}>
             <div className={styles["home-hero"]}>
                 <picture>
+                    <source
+                        srcSet="/assets/home/mobile/image-header.jpg"
+                        media="(max-width: 700px)"
+                    />
                     <source 
                         srcSet="/assets/home/tablet/image-header.jpg"
                         media="(max-width: 1200px)"
@@ -51,6 +55,10 @@ export default function Home ():JSX.Element {
                     <div className={styles["home-zx7"]}>
                         <picture>
                             <source
+                                srcSet="/assets/home/mobile/image-speaker-zx7.jpg"
+                                media="(max-width: 600px)"
+                            />
+                            <source
                                 srcSet="/assets/home/tablet/image-speaker-zx7.jpg"
                                 media="(max-width: 1000px)"
                             />
@@ -64,6 +72,10 @@ export default function Home ():JSX.Element {
 
                     <div className={styles["home-yx1"]}>
                         <picture>
+                            <source
+                                srcSet="/assets/home/mobile/image-earphones-yx1.jpg"
+                                media="(max-width: 700px)"
+                            />
                             <source
                                 srcSet="/assets/home/tablet/image-earphones-yx1.jpg"
                                 media="(max-width: 1000px)"

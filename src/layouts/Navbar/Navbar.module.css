@@ -105,6 +105,17 @@
         }
     }
 
+    @media (max-width: 700px) {
+
+        &>.navbar-controls>img{
+            display: none;
+        }
+        
+        &>img{
+            display: block;
+        }
+    }
+
 }
 
 .cart-btn-animation{
