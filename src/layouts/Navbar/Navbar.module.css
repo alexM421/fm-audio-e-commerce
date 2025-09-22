@@ -100,18 +100,18 @@
             }
         }
 
-        &>img, &>.navbar-items{
+        &>a, &>.navbar-items{
             display: none;
         }
     }
 
     @media (max-width: 700px) {
 
-        &>.navbar-controls>img{
+        &>.navbar-controls>a{
             display: none;
         }
         
-        &>img{
+        &>a{
             display: block;
         }
     }
