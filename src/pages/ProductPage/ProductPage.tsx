@@ -72,7 +72,17 @@ export default function ProductPage ():JSX.Element {
             <div className={styles["product-main"]}>
                 <Link to="../">Go Back</Link>
                 <div className={styles["product-buy"]}>
-                    <img src={productData.image.desktop}/>
+                    <picture>
+                        <source
+                            srcSet={productData.image.mobile}
+                            media="(max-width: 700px)"
+                        />
+                        <source 
+                            srcSet={productData.image.tablet}
+                            media="(max-width: 1100px)"
+                        />
+                        <img src={productData.image.desktop}/>
+                    </picture>
                     <div>
                         {productData.new && <h2>NEW PRODUCT</h2>}
                         <h1>{productData.name}</h1>
@@ -104,10 +114,41 @@ export default function ProductPage ():JSX.Element {
             </div>
             <div className={styles["product-gallery"]}>
                 <div>
-                    <img src={productData.gallery.first.desktop}/>
-                    <img src={productData.gallery.second.desktop}/>
+                    <picture>
+                        <source
+                            srcSet={productData.gallery.first.mobile}
+                            media="(max-width: 700px)"
+                        />
+                        <source
+                            srcSet={productData.gallery.first.tablet}
+                            media="(max-width: 1100px)"
+                        />
+                        <img src={productData.gallery.first.desktop}/>
+                    </picture>
+                    <picture>
+                        <source
+                            srcSet={productData.gallery.second.mobile}
+                            media="(max-width: 700px)"
+                        />
+                        <source
+                            srcSet={productData.gallery.second.tablet}
+                            media="(max-width: 1100px)"
+                        />
+                        <img src={productData.gallery.second.desktop}/>
+                    </picture>
                 </div>
-                <img src={productData.gallery.third.desktop}/>
+                <picture>
+                    <source
+                            srcSet={productData.gallery.third.mobile}
+                            media="(max-width: 700px)"
+                        />
+                    <source
+                        srcSet={productData.gallery.third.tablet}
+                        media="(max-width: 1100px)"
+                    />
+                    <img src={productData.gallery.third.desktop}/>
+                </picture>
+                
             </div>
             <div className={styles["product-others"]}>
                 <h2>YOU MAY ALSO LIKE</h2>
@@ -122,7 +163,17 @@ export default function ProductPage ():JSX.Element {
 
                         return(
                             <div key={`other-${index+1}`}>
-                                <img src={other.image.desktop} alt={`${other.name} image`}/>
+                                <picture>
+                                    <source 
+                                        srcSet={other.image.mobile}
+                                        media="(max-width: 700px)"
+                                    />
+                                    <source 
+                                        srcSet={other.image.tablet}
+                                        media="(max-width: 1100px)"
+                                    />
+                                    <img src={other.image.desktop} alt={`${other.name} image`}/>
+                                </picture>
                                 <h3>{other.name}</h3>
                                 <Button link={slug}>SEE PRODUCT</Button>
                             </div>
