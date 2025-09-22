@@ -14,14 +14,26 @@ type ProductItemLinkProps = {
 export default function ProductItemLink ({ productInfo, isReversed }:ProductItemLinkProps):JSX.Element {
 
     const categoryImage:string = productInfo.categoryImage.desktop
+    const tabletImage:string = productInfo.categoryImage.tablet
+    const mobileImage:string = productInfo.categoryImage.mobile
     const isNew: boolean = productInfo.new
     const name: string = productInfo.name
     const description: string = productInfo.description
     const slug: string = productInfo.slug
 
     return(
-        <div className={styles["product-item-link"]} style={isReversed? {flexDirection: "row-reverse"}:{}}>
-            <img src={categoryImage}/>
+        <div className={`${styles["product-item-link"]} ${isReversed && styles["produc-item-reversed"]}`}>
+            <picture>
+                <source
+                    srcSet={mobileImage}
+                    media="(max-width: 700px)"
+                />
+                <source
+                    srcSet={tabletImage}
+                    media="(max-width: 1100px)"
+                />
+                <img src={categoryImage}/>
+            </picture>
             <div>
                 {isNew && <h2>NEW PRODUCT</h2>}
                 <h1>{name.toUpperCase()}</h1>
