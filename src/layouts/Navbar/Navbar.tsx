@@ -38,6 +38,12 @@ export default function Navbar ():JSX.Element {
 
     return(
         <div className={`${styles.navbar} ${(isNavbarTop && !isProductPage &&!isCheckout)? styles["navbar-top"]:""}`}>
+            <div className={styles["navbar-controls"]}>
+                <button>
+                    <img src="/assets/shared/tablet/icon-hamburger.svg"/>
+                </button>
+                <img src="/assets/shared/desktop/logo.svg" alt="Audiophile logo"/>
+            </div>
             <img src="/assets/shared/desktop/logo.svg" alt="Audiophile logo"/>
             <div className={styles["navbar-items"]}>
                 <Link to="/">HOME</Link>

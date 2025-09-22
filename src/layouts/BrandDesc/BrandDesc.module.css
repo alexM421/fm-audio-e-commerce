@@ -5,7 +5,7 @@
     gap: 120px;
     max-width: 1200px;
 
-    &>img{
+    &>picture>img{
         height: 588px;
         border-radius: 8px;
     }
@@ -35,6 +35,26 @@
             font-size: 15px;
             line-height: 25px;
             font-weight: 500;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        flex-direction: column-reverse;
+        gap: 63px;
+        
+        
+        &>div{
+            text-align: center;
+            align-items: center;
+
+            &>h1{
+                max-width: auto;
+            }
+        }
+
+        &>picture>img{
+            width: 100%;
+            height: auto;
         }
     }
 }

@@ -14,6 +14,10 @@ export default function Home ():JSX.Element {
         <div className={styles.home}>
             <div className={styles["home-hero"]}>
                 <picture>
+                    <source 
+                        srcSet="/assets/home/tablet/image-header.jpg"
+                        media="(max-width: 1200px)"
+                    />
                     <img 
                         src="/assets/home/desktop/image-hero.jpg"
                         alt="Hero image of XX99 Mark II Headphones"
@@ -45,7 +49,13 @@ export default function Home ():JSX.Element {
                     </div>
 
                     <div className={styles["home-zx7"]}>
-                        <img src="/assets/home/desktop/image-speaker-zx7.jpg"/>
+                        <picture>
+                            <source
+                                srcSet="/assets/home/tablet/image-speaker-zx7.jpg"
+                                media="(max-width: 1000px)"
+                            />
+                            <img src="/assets/home/desktop/image-speaker-zx7.jpg"/>
+                        </picture>
                         <div>
                             <h1>ZX7 SPEAKER</h1>
                             <Button link="/speakers/zx7-speaker" variant="secondary">SEE PRODUCT</Button>
@@ -53,7 +63,13 @@ export default function Home ():JSX.Element {
                     </div>
 
                     <div className={styles["home-yx1"]}>
-                        <img src="/assets/home/desktop/image-earphones-yx1.jpg"/>
+                        <picture>
+                            <source
+                                srcSet="/assets/home/tablet/image-earphones-yx1.jpg"
+                                media="(max-width: 1000px)"
+                            />
+                            <img src="/assets/home/desktop/image-earphones-yx1.jpg"/>
+                        </picture>
                         <div>
                             <h1>YX1 EARPHONES</h1>
                             <Button link="/earphones/yx1-earphones" variant="secondary">SEE PRODUCT</Button>
