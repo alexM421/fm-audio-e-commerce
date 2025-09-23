@@ -1,7 +1,7 @@
 //CSS
 import styles from "./TextInput.module.css"
 //Types
-import type { ChangeEvent, JSX } from "react"
+import type { JSX } from "react"
 
 type TextInputProps = {
     legend: string,
