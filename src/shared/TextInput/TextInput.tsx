@@ -1,7 +1,7 @@
 //CSS
 import styles from "./TextInput.module.css"
 //Types
-import type { JSX } from "react"
+import type { JSX, RefObject } from "react"
 
 type TextInputProps = {
     legend: string,
@@ -15,9 +15,10 @@ type TextInputProps = {
     error: boolean,
     value: string,
     setValue: (e: React.ChangeEvent<HTMLInputElement>) => void
+    ref?: RefObject<HTMLInputElement | null>
 }
 
-export default function TextInput ({ legend, inputAttr={pattern: ""}, error, value, setValue }: TextInputProps):JSX.Element {
+export default function TextInput ({ legend, inputAttr={pattern: ""}, error, value, setValue, ref }: TextInputProps):JSX.Element {
 
     return(
         <div className={`${styles["text-input"]} ${error? styles.err:""}`}>
@@ -30,6 +31,7 @@ export default function TextInput ({ legend, inputAttr={pattern: ""}, error, val
             value={value}
             onChange={setValue}
             required
+            ref={ref}
             />
         </div>
     )

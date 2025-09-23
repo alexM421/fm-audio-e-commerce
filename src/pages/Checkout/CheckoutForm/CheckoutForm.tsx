@@ -1,7 +1,7 @@
 //CSS
 import styles from "../Checkout.module.css"
 //React
-import { useState } from "react"
+import { useRef, useState } from "react"
 //Shared
 import TextInput from "../../../shared/TextInput/TextInput"
 
@@ -45,35 +45,46 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
         }
     )
 
+    const phoneRef = useRef<HTMLInputElement>(null)
+
     const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormValues(prevFormValues => ({...prevFormValues, [e.target.name] : e.target.value }))
     }
     //alternative for easy phone input
     const setPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormValues(prevFormValues => {
 
-            const inputValue = e.target.value
-            const inputArr = inputValue.split("")
-            const lastInput = inputArr[inputArr.length-1]
-            const isValid =  inputArr.length===1
-                ? lastInput==="+" || Number(lastInput)
-                : Number(lastInput)
-            if(!isValid || inputArr.length>15){
-                inputArr.pop()
-            }
+        const isDigit = (ch: string) => !isNaN(Number(ch)) && ch !== " "
 
-            const updatedInputArr = inputArr
-                .filter(element => Number(element) || element==="+")
-                .flatMap((element, index) => {
-                    if(index===0 && element!=="+") return ["+",element]
-                    if(index===2) return [" ",element]
-                    else if([5,8].includes(index)) return ["-",element]
-                    else return element
-                })
+        const input = e.target
+        const cursorPosition = input.selectionStart ?? 0
 
-            return {
-                ...prevFormValues, 
-                phone : updatedInputArr.join("")
+        const inputValue = input.value
+        const inputArr = inputValue.split("")
+        const lastInput = inputArr[inputArr.length-1]
+        const isValid =  inputArr.length===1
+            ? lastInput==="+" || isDigit(lastInput)
+            : isDigit(lastInput)
+        if(!isValid || inputArr.length>15){
+            inputArr.pop()
+        }
+
+        const updatedInputArr = inputArr
+            .filter(element => isDigit(element) || element==="+")
+            .flatMap((element, index) => {
+                if(index===0 && element!=="+") return ["+",element]
+                else if(index===2) return [" ",element]
+                else if([5,8].includes(index)) return ["-",element]
+                else return element
+            })
+
+        setFormValues(prevFormValues => ({
+            ...prevFormValues, 
+            phone : updatedInputArr.join("")
+        }))
+
+        requestAnimationFrame(() => {
+            if(phoneRef.current){
+                phoneRef.current.setSelectionRange(cursorPosition, cursorPosition)
             }
         })
     }
@@ -147,6 +158,7 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
                         error={errors.phone}
                         value={formValues.phone}
                         setValue={setPhoneNumber}
+                        ref={phoneRef}
                     />
                 </div>
             </div>
