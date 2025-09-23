@@ -48,8 +48,34 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
     const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormValues(prevFormValues => ({...prevFormValues, [e.target.name] : e.target.value }))
     }
+    //alternative for easy phone input
+    const setPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormValues(prevFormValues => {
 
+            const inputValue = e.target.value
+            const inputArr = inputValue.split("")
+            const lastInput = inputArr[inputArr.length-1]
+            const isValid =  inputArr.length===1
+                ? lastInput==="+"
+                : Number(lastInput)
+            if(!isValid || inputArr.length>15){
+                inputArr.pop()
+            }
 
+            const updatedInputArr = inputArr
+                .filter(element => Number(element) || element==="+")
+                .flatMap((element, index) => {
+                    if(index===2) return [" ",element]
+                    else if([5,8].includes(index)) return ["-",element]
+                    else return element
+                })
+
+            return {
+                ...prevFormValues, 
+                phone : updatedInputArr.join("")
+            }
+        })
+    }
     
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -119,7 +145,7 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
                         }}
                         error={errors.phone}
                         value={formValues.phone}
-                        setValue={setValue}
+                        setValue={setPhoneNumber}
                     />
                 </div>
             </div>
