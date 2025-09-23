@@ -60,7 +60,7 @@ export default function Navbar ():JSX.Element {
                 <Link to="/speakers">SPEAKERS</Link>
                 <Link to="/earphones">EARPHONES</Link>
             </div>
-            <div onClick={toggleCartDisplay} ref={cartBtnRef}>
+            <div onClick={toggleCartDisplay} ref={cartBtnRef} className={styles["navbar-cart-link"]}>
                 <IconCart/>
             </div>
             <hr/>

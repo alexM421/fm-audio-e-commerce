@@ -16,7 +16,7 @@
         height: 25px;
     }
 
-    &>a, &>.navbar-controls>a, &>div:last-of-type{
+    &>a, &>.navbar-controls>a, &>.navbar-cart-link{
         display: flex;
         align-items: center;
         justify-content: center;

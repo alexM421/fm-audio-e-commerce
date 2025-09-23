@@ -56,7 +56,7 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
             const inputArr = inputValue.split("")
             const lastInput = inputArr[inputArr.length-1]
             const isValid =  inputArr.length===1
-                ? lastInput==="+"
+                ? lastInput==="+" || Number(lastInput)
                 : Number(lastInput)
             if(!isValid || inputArr.length>15){
                 inputArr.pop()
@@ -65,6 +65,7 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
             const updatedInputArr = inputArr
                 .filter(element => Number(element) || element==="+")
                 .flatMap((element, index) => {
+                    if(index===0 && element!=="+") return ["+",element]
                     if(index===2) return [" ",element]
                     else if([5,8].includes(index)) return ["-",element]
                     else return element
