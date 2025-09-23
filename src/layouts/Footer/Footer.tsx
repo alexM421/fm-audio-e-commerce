@@ -6,12 +6,8 @@ import { Link } from "react-router-dom"
 import IconFacebook from "../../assets/IconFacebook/IconFacebook"
 import IconInstagram from "../../assets/IconInstagram/IconInstagram"
 import IconTwitter from "../../assets/IconTwitter/IconTwitter"
-//hooks
-import useIsMobile from "../../hooks/useIsMobile"
 
 export default function Footer () {
-
-    const { isMobile } = useIsMobile(1200)
 
     return(
         <div className={styles.footer}>

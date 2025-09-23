@@ -1,5 +1,3 @@
-//react-dom
-import { createPortal } from "react-dom"
 //CSS
 import styles from "./Navbar.module.css"
 //React Router
@@ -10,6 +8,7 @@ import IconCart from "../../assets/IconCart/IconCart"
 import Cart from "../../modals/Cart/Cart"
 //Types
 import { useEffect, useRef, useState, type JSX } from "react"
+//Modals
 import NavModal from "../../modals/NavModal/NavModal"
 
 export default function Navbar ():JSX.Element {

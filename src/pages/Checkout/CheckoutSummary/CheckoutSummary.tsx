@@ -3,7 +3,6 @@ import styles from "../Checkout.module.css"
 //Shared
 import Button from "../../../shared/Button/Button"
 //react
-import { useState } from "react"
 import { createPortal } from "react-dom"
 //modals
 import CheckoutModal from "../../../modals/CheckoutModal/CheckoutModal"
