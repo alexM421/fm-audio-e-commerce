@@ -56,34 +56,38 @@ export default function CheckoutForm ({ formRef, setIsOrderConfirmed }: Checkout
         const isDigit = (ch: string) => !isNaN(Number(ch)) && ch !== " "
 
         const input = e.target
-        const cursorPosition = input.selectionStart ?? 0
-
+        let cursorPosition = input.selectionStart ?? 0
+        
         const inputValue = input.value
         const inputArr = inputValue.split("")
         const lastInput = inputArr[inputArr.length-1]
         const isValid =  inputArr.length===1
-            ? lastInput==="+" || isDigit(lastInput)
-            : isDigit(lastInput)
+        ? lastInput==="+" || isDigit(lastInput)
+        : isDigit(lastInput)
         if(!isValid || inputArr.length>15){
             inputArr.pop()
         }
-
+        
         const updatedInputArr = inputArr
-            .filter(element => isDigit(element) || element==="+")
-            .flatMap((element, index) => {
-                if(index===0 && element!=="+") return ["+",element]
-                else if(index===2) return [" ",element]
-                else if([5,8].includes(index)) return ["-",element]
-                else return element
-            })
-
+        .filter(element => isDigit(element) || element==="+")
+        .flatMap((element, index) => {
+            if(index===0 && element!=="+") return ["+",element]
+            else if(index===2) return [" ",element]
+            else if([5,8].includes(index)) return ["-",element]
+            else return element
+        })
+        
         setFormValues(prevFormValues => ({
             ...prevFormValues, 
             phone : updatedInputArr.join("")
         }))
-
+        
         requestAnimationFrame(() => {
             if(phoneRef.current){
+                const jumpCursor = [1,3,7,11].includes(inputArr.length) && isValid
+                if(jumpCursor){
+                    cursorPosition++
+                }
                 phoneRef.current.setSelectionRange(cursorPosition, cursorPosition)
             }
         })
