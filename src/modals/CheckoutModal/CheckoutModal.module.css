@@ -39,6 +39,7 @@
         margin-bottom: 48px;
         display: flex;
 
+        
         &>.order-summary{
             flex: 1;
             display: flex;
@@ -47,13 +48,13 @@
             padding: 18px 24px;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
-
+            
             &>hr{
                 margin-block: 12px;
                 border: none;
                 border-bottom: 1px solid rgba(0,0,0,0.08);
             }
-
+            
             &>button{
                 background-color: transparent;
                 border: none;
@@ -66,14 +67,14 @@
                     cursor: pointer;
                     text-decoration: underline;
                 }
-
+                
                 &:focus{
                     outline: none;
                 }
             }
-
+            
         }
-
+        
         &>.order-total{
             width: 198px;
             display: flex;
@@ -82,12 +83,12 @@
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
             position: relative;
-
+            
             &>div{
                 position: absolute;
                 bottom: 42px;
                 left: 32px;
-
+                
                 &>p:first-of-type{
                     color: white;
                     opacity: 0.5;
@@ -96,7 +97,7 @@
                     font-weight: 500;
                     letter-spacing: 0px;
                 }
-    
+                
                 &>p:last-of-type{
                     color: white;
                     font-size: 18px;
@@ -105,7 +106,28 @@
                 }
             }
         }
+
+        @media (max-width:700px) {
+            flex-direction: column;
+
+            &>.order-total{
+                width: auto;
+                height: 92px;
+                border-radius: 0px 0px 8px 8px;
+                
+                &>div{
+                    left: 24px;
+                    bottom: 50%;
+                    transform: translateY(50%);
+                }
+            }
+        }
     }   
+
+    @media (max-width: 700px) {
+        width: 95%;
+        max-width: 540px;
+    }
 }
 
 .summary-items{

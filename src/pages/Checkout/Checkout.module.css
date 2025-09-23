@@ -6,6 +6,7 @@
     padding: 240px 165px 145px 165px;
     background-color: #F1F1F1;
 
+    
     &>a{
         opacity: 0.5;
         color: black;
@@ -14,18 +15,31 @@
         letter-spacing: 0px;
         font-weight: 500;
         transition: color ease 0.3s, opacity ease 0.3s;
-
+        
         &:hover{
             cursor: pointer;
             color: #D87D4A;
             opacity: 1;
         }
     }
-
+    
     &>.checkout-main{
         display: flex;
         align-items: flex-start;
         gap: 22px;
+    }
+    
+    @media (max-width: 1200px) {
+        padding: 138px 40px 116px 40px;
+        gap: 24px;
+    
+        &>.checkout-main{
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 700px) {
+        padding: 125px 24px 97px 24px;
     }
 }
 
@@ -61,6 +75,14 @@
             text-transform: uppercase;
         }
     }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+
+    @media (max-width: 700px) {
+        padding: 24px;
+    }
 }
 
 .billing-section, .shipping-section, .payment-section{
@@ -69,6 +91,12 @@
     row-gap: 24px;
     column-gap: 16px;
     margin-bottom: 60px;
+
+    @media (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+    }
 }
 
 /*Hides the selector of num inputs*/
@@ -144,6 +172,17 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     display: flex;
     gap:  16px;
 
+    @media (max-width: 700px) {
+        display: inline;
+        
+        &>img{
+            width: 50px;
+            float: left;
+            margin-right: 8px;
+            
+        }
+    }
+
     &>p{
         color: rgba(0,0,0,0.5);
         font-size: 15px;
@@ -202,6 +241,10 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
                 color: #D87D4A;
             }
         }
+    }
+
+    @media (max-width: 1200px) {
+        width: 100%;
     }
 }
 

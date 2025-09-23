@@ -127,6 +127,7 @@ export default function Cart ({ setCartDisplay, cartBtnRef }: CartProps): JSX.El
     const handleCheckout = () => {
         //if at least one cartItem is not null
         if(!isCartEmpty){
+            setCartDisplay(false)
             navigate("/checkout")
         }
     }
