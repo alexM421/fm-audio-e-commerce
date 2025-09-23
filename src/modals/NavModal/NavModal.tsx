@@ -2,6 +2,8 @@
     import { useEffect, useRef, type Dispatch, type RefObject, type SetStateAction } from "react"
     import CategoryLinks from "../../layouts/CategoryLinks/CategoryLinks"
     import styles from "./NavModal.module.css"
+import { useLocation } from "react-router-dom"
+import useUpdateEffect from "../../hooks/useUpdateEffect"
 
     type NavModalProps = {
         buttonRef: RefObject<HTMLButtonElement | null>,
@@ -11,6 +13,8 @@
     export default function NavModal ({ buttonRef, setShowNav }: NavModalProps) {
 
         const navRef = useRef<HTMLDivElement | null>(null)
+        
+        const location = useLocation()
 
         useEffect(() => {
             const handleClickOutside = (e: MouseEvent) => {
@@ -24,6 +28,9 @@
             document.body.addEventListener("mousedown", handleClickOutside)
             return () => document.body.removeEventListener("mousedown", handleClickOutside)
         },[])
+
+        //onLocation change, setShowNav false
+        useUpdateEffect(() => setShowNav(false), [location])
 
         return(
             <>
