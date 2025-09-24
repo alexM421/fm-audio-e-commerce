@@ -54,7 +54,10 @@ export default function CheckoutSummary ({ formRef, isOrderConfirmed }: Checkout
                     <p>{`$${grandTotal.toLocaleString("en-US")}`}</p>
                 </div>
             </div>
-            <Button onClick={handleOrderConfirmation}>CONTINUE & PAY</Button>
+            <Button 
+                onClick={handleOrderConfirmation}
+                disabled={total === 0}
+            >CONTINUE & PAY</Button>
 
             {isOrderConfirmed && createPortal(<CheckoutModal grandTotal={grandTotal}/>, document.body)}
         </div>
