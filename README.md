@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# Audiophile E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-page e-commerce storefront for [Audiophile](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx), the Frontend Mentor challenge for browsing and purchasing premium headphones, speakers, and earphones.
 
-Currently, two official plugins are available:
+Built with React, Vite, and React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Responsive home, category, product, and checkout pages
+- Product catalog driven by local JSON data (`src/data.json`)
+- Shopping cart with add, remove, quantity updates, and cart popup
+- Shared layout with navbar, footer, and branding sections
+- Checkout form with billing, shipping, and payment options (including cash on delivery)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [React Router](https://reactrouter.com/)
+- CSS Modules
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm
+
+### Install and run
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open the local URL shown in the terminal (usually `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Other scripts
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command         | Description                          |
+| --------------- | ------------------------------------ |
+| `npm run dev`   | Start the development server         |
+| `npm run build` | Create a production build            |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint`  | Run ESLint                           |
+
+## Project structure
+
 ```
+src/
+├── components/     # Reusable UI (Button, ItemCard, TextInput, …)
+├── context/        # Cart context provider
+├── layouts/        # Navbar, Footer, Cart popup, shared page shell
+├── pages/          # Home, Headphones, Speakers, Earphones, Product, Checkout
+├── svg/            # Icon components
+├── data.json       # Product catalog
+├── App.jsx         # Route definitions
+└── index.jsx       # App entry point
+```
+
+## Routes
+
+| Path                    | Page                          |
+| ----------------------- | ----------------------------- |
+| `/`                     | Home                          |
+| `/headphones`           | Headphones category           |
+| `/speakers`             | Speakers category             |
+| `/earphones`            | Earphones category            |
+| `/:category/:slug`      | Individual product page       |
+| `/checkout`             | Checkout                      |
+
+## Challenge
+
+This project is a solution to the [Audiophile e-commerce website](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx) challenge on Frontend Mentor.
